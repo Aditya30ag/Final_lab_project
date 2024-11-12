@@ -87,6 +87,7 @@
             to { transform: translateY(0); opacity: 1; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="card">
@@ -94,7 +95,7 @@
         
         <div class="result">
             <h2>Predicted BPM: {{ bpm }}</h2>  
-            <h3>Risk Level: {{ risk_score }}</h3>
+            <i class="fa-regular fa-face-smile" style="font-size:30px;font-weight: 900;"></i>
         </div>
         
         <a href="{{ url_for('home') }}" class="btn">Make Another Prediction</a>

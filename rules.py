@@ -69,8 +69,8 @@ def heart_attack_indicator(heart_rate, blood_pressure_sys, exercise_level, chole
 
     # Risk assessment based on the total risk score
     if risk_score >= 90:
-        return "High risk of heart attack! Seek medical attention."
+        return "High risk of heart attack! A healthy heart starts with you, take control before it is too late!😨"
     elif 40 <= risk_score < 90:
-        return "Moderate risk of heart attack. Consider consulting a doctor."
+        return "Moderate risk of heart attack! Take charge now—your heart deserves the best, and it is never too late to act!😐"
     else:
-        return "Low risk of heart attack. Maintain a healthy lifestyle."
+        return "Low risk of heart attack! Your heart is in great shape—keep it that way with smart choices every day!😊"
