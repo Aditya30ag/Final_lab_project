@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Heart Attack Risk Indicator</title>
     <style>
+        /* Background Animation */
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
-            background: linear-gradient(270deg, #f5f7fa, #c3cfe2);
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
             background-size: 400% 400%;
             animation: gradient 10s ease infinite;
             display: flex;
@@ -26,6 +26,7 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Navbar */
         .navbar {
             background: rgba(0, 0, 0, 0.7);
             padding: 1rem 2rem;
@@ -38,7 +39,7 @@
         }
 
         .nav-links {
-            display: inline-flex;
+            display: flex;
             gap: 1.5rem;
         }
 
@@ -48,11 +49,19 @@
             font-weight: 600;
             transition: color 0.3s ease;
             padding: 0.5rem 1rem;
+<<<<<<< HEAD
             border-radius: 5px;;
         }
 
         .nav-links a:hover {
             color: #34495e;
+=======
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b6b;
+>>>>>>> 4ff50cef1e49826a24fdc6aeb5fdf23737a76b52
             background: rgba(255, 255, 255, 0.2);
         }
 
@@ -60,6 +69,7 @@
         h1 {
             margin-top: 5rem;
             font-size: 3rem;
+<<<<<<< HEAD
             color: black;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
             animation: fadeIn 2s ease;
@@ -68,8 +78,19 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
+=======
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s ease;
+>>>>>>> 4ff50cef1e49826a24fdc6aeb5fdf23737a76b52
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Form Container */
         form {
             background: rgba(255, 255, 255, 0.9);
             margin-top: 2rem;
@@ -89,93 +110,65 @@
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-            transition: color 0.2s ease;
+            font-weight: 600;
+            color: #444;
         }
 
-        input[type="number"],
-        input[type="text"] {
+        input[type="number"], input[type="text"], select {
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
             border-radius: 8px;
+            border: 1px solid #ddd;
             font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s ease;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        input[type="number"]:focus,
-        input[type="text"]:focus {
-            border-color: #007BFF;
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        input:focus, select:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
             outline: none;
-            transform: scale(1.02);
         }
 
-        input[type="number"]::placeholder,
-        input[type="text"]::placeholder {
-            opacity: 0.5;
-            transition: opacity 0.2s ease;
+        input::placeholder {
+            opacity: 0.7;
         }
 
-        input[type="number"]:focus::placeholder,
-        input[type="text"]:focus::placeholder {
-            opacity: 0;
-        }
-
-        button {
-            background: linear-gradient(to right, #007BFF, #0056b3);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 50px;
+        select {
             cursor: pointer;
-            font-size: 1.2rem;
+        }
+
+        /* Button */
+        button {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            color: #fff;
             font-weight: bold;
+            font-size: 1.2rem;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
             width: 100%;
-            text-align: center;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
 
         button:hover {
-            background: linear-gradient(to right, #0056b3, #003f7f);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(to right, #ff4757, #e74c3c);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         button:active {
             transform: translateY(0);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        button:focus {
-            outline: none;
-        }
-
-        button::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
+        /* Media Queries */
         @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
             form {
                 padding: 1.5rem;
             }
@@ -188,6 +181,7 @@
     </style>
 </head>
 <body>
+    <!-- Navbar -->
     <div class="navbar">
         <div class="nav-links">
             <a href="/">Home</a>
@@ -196,8 +190,10 @@
         </div>
     </div>
 
+    <!-- Heading -->
     <h1>Heart Attack Risk Indicator</h1>
 
+    <!-- Form -->
     <form action="/result_rate" method="POST">
         <label for="heart_rate">Heart Rate:</label>
         <input type="number" id="heart_rate" name="heart_rate" max="250" min="50" placeholder="Enter your heart rate" required>
@@ -209,19 +205,18 @@
         <input type="number" id="exercise_level" name="exercise_level" max="5" min="1" placeholder="Rate your exercise level" required>
 
         <label for="cholesterol">Cholesterol Level:</label>
-        <input type="number" id="cholesterol" name="cholesterol" max='250' min='50'placeholder="Enter your cholesterol level" required>
+        <input type="number" id="cholesterol" name="cholesterol" max="250" min="50" placeholder="Enter your cholesterol level" required>
 
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age"min="3" max="120" placeholder="Enter your age" required>
+        <input type="number" id="age" name="age" min="3" max="120" placeholder="Enter your age" required>
 
         <label for="sex">Sex (M/F):</label>
         <select id="sex" name="sex" required>
             <option value="">Select</option>
-            <option value="M">M</option>
-            <option value="F">F</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
             <option value="Other">Other</option>
         </select>
-        
 
         <label for="smoking_status">Smoking Status (Yes/No):</label>
         <select id="smoking_status" name="smoking_status" required>
@@ -229,7 +224,6 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-       
 
         <label for="diabetes_status">Diabetes Status (Yes/No):</label>
         <select id="diabetes_status" name="diabetes_status" required>
@@ -237,7 +231,6 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-        
 
         <label for="family_history">Family History of Heart Disease:</label>
         <select id="family_history" name="family_history" required>
@@ -247,13 +240,14 @@
             <option value="Others">Others</option>
             <option value="None">None</option>
         </select>
-        
+
         <label for="weight">Weight (kg):</label>
         <input type="number" id="weight" name="weight" step="0.01" max="500" min="1" placeholder="Enter your weight in kg" required>
 
         <label for="height">Height (m):</label>
         <input type="number" id="height" name="height" step="0.01" max="2.75" min="0" placeholder="Enter your height in meters" required>
 
+<<<<<<< HEAD
         <style>
         #sex, #smoking_status, #diabetes_status, #family_history {
             width: 100%;
@@ -271,6 +265,8 @@
         }
         </style>
         
+=======
+>>>>>>> 4ff50cef1e49826a24fdc6aeb5fdf23737a76b52
         <button type="submit">Calculate Risk</button>
     </form>
 </body>
