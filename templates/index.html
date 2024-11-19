@@ -7,15 +7,17 @@
     <title>Heart Attack Risk Indicator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             background: linear-gradient(270deg, #f5f7fa, #c3cfe2);
             background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            animation: gradient 10s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
+            color: #333;
         }
 
         @keyframes gradient {
@@ -25,11 +27,14 @@
         }
 
         .navbar {
-            background: #2c3e50;
+            background: rgba(0, 0, 0, 0.7);
             padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: 100%;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
         }
 
         .nav-links {
@@ -38,41 +43,47 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #fff;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
             padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;;
         }
 
         .nav-links a:hover {
-            background-color: #34495e;
+            color: #34495e;
+            background: rgba(255, 255, 255, 0.2);
         }
 
+        /* Heading */
         h1 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: #333;
-            font-size: 2.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-top: 5rem;
+            font-size: 3rem;
+            color: black;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         form {
+            background: rgba(255, 255, 255, 0.9);
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             width: 90%;
-            background: white;
-            margin: 1.5rem auto;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 1s ease;
         }
 
-        form:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         label {
@@ -256,7 +267,7 @@
         }
         
         #sex option, #smoking_status option, #diabetes_status option, #family_history option {
-            color: black;
+            color: rgb(68, 67, 67);
         }
         </style>
         
