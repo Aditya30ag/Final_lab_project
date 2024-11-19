@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Heart Attack Risk Indicator</title>
     <style>
+        /* Background Animation */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
-            background: linear-gradient(270deg, #f5f7fa, #c3cfe2);
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
             background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            animation: gradient 10s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
+            color: #333;
         }
 
         @keyframes gradient {
@@ -24,147 +26,130 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Navbar */
         .navbar {
-            background: #2c3e50;
+            background: rgba(0, 0, 0, 0.7);
             padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: 100%;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
         }
 
         .nav-links {
-            display: inline-flex;
+            display: flex;
             gap: 1.5rem;
         }
 
         .nav-links a {
-            color: white;
+            color: #fff;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
             padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
         }
 
         .nav-links a:hover {
-            background-color: #34495e;
+            color: #ff6b6b;
+            background: rgba(255, 255, 255, 0.2);
         }
 
+        /* Heading */
         h1 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: #333;
-            font-size: 2.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-top: 5rem;
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2s ease;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Form Container */
         form {
+            background: rgba(255, 255, 255, 0.9);
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             width: 90%;
-            background: white;
-            margin: 1.5rem auto;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 1s ease;
         }
 
-        form:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-            transition: color 0.2s ease;
+            font-weight: 600;
+            color: #444;
         }
 
-        input[type="number"],
-        input[type="text"] {
+        input[type="number"], input[type="text"], select {
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
             border-radius: 8px;
+            border: 1px solid #ddd;
             font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s ease;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        input[type="number"]:focus,
-        input[type="text"]:focus {
-            border-color: #007BFF;
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        input:focus, select:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
             outline: none;
-            transform: scale(1.02);
         }
 
-        input[type="number"]::placeholder,
-        input[type="text"]::placeholder {
-            opacity: 0.5;
-            transition: opacity 0.2s ease;
+        input::placeholder {
+            opacity: 0.7;
         }
 
-        input[type="number"]:focus::placeholder,
-        input[type="text"]:focus::placeholder {
-            opacity: 0;
-        }
-
-        button {
-            background: linear-gradient(to right, #007BFF, #0056b3);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 50px;
+        select {
             cursor: pointer;
-            font-size: 1.2rem;
+        }
+
+        /* Button */
+        button {
+            background: linear-gradient(to right, #ff6b6b, #ff4757);
+            color: #fff;
             font-weight: bold;
+            font-size: 1.2rem;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
             width: 100%;
-            text-align: center;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
 
         button:hover {
-            background: linear-gradient(to right, #0056b3, #003f7f);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(to right, #ff4757, #e74c3c);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         button:active {
             transform: translateY(0);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        button:focus {
-            outline: none;
-        }
-
-        button::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
+        /* Media Queries */
         @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
             form {
                 padding: 1.5rem;
             }
@@ -177,6 +162,7 @@
     </style>
 </head>
 <body>
+    <!-- Navbar -->
     <div class="navbar">
         <div class="nav-links">
             <a href="/">Home</a>
@@ -185,8 +171,10 @@
         </div>
     </div>
 
+    <!-- Heading -->
     <h1>Heart Attack Risk Indicator</h1>
 
+    <!-- Form -->
     <form action="/result_rate" method="POST">
         <label for="heart_rate">Heart Rate:</label>
         <input type="number" id="heart_rate" name="heart_rate" max="250" min="50" placeholder="Enter your heart rate" required>
@@ -198,19 +186,18 @@
         <input type="number" id="exercise_level" name="exercise_level" max="5" min="1" placeholder="Rate your exercise level" required>
 
         <label for="cholesterol">Cholesterol Level:</label>
-        <input type="number" id="cholesterol" name="cholesterol" max='250' min='50'placeholder="Enter your cholesterol level" required>
+        <input type="number" id="cholesterol" name="cholesterol" max="250" min="50" placeholder="Enter your cholesterol level" required>
 
         <label for="age">Age:</label>
-        <input type="number" id="age" name="age"min="3" max="120" placeholder="Enter your age" required>
+        <input type="number" id="age" name="age" min="3" max="120" placeholder="Enter your age" required>
 
         <label for="sex">Sex (M/F):</label>
         <select id="sex" name="sex" required>
             <option value="">Select</option>
-            <option value="M">M</option>
-            <option value="F">F</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
             <option value="Other">Other</option>
         </select>
-        
 
         <label for="smoking_status">Smoking Status (Yes/No):</label>
         <select id="smoking_status" name="smoking_status" required>
@@ -218,7 +205,6 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-       
 
         <label for="diabetes_status">Diabetes Status (Yes/No):</label>
         <select id="diabetes_status" name="diabetes_status" required>
@@ -226,7 +212,6 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-        
 
         <label for="family_history">Family History of Heart Disease:</label>
         <select id="family_history" name="family_history" required>
@@ -236,30 +221,13 @@
             <option value="Others">Others</option>
             <option value="None">None</option>
         </select>
-        
+
         <label for="weight">Weight (kg):</label>
         <input type="number" id="weight" name="weight" step="0.01" max="500" min="1" placeholder="Enter your weight in kg" required>
 
         <label for="height">Height (m):</label>
         <input type="number" id="height" name="height" step="0.01" max="2.75" min="0" placeholder="Enter your height in meters" required>
 
-        <style>
-        #sex, #smoking_status, #diabetes_status, #family_history {
-            width: 100%;
-            font-size: 16px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #757575;
-            box-sizing: border-box;
-            margin-bottom: 20px; 
-        }
-        
-        #sex option, #smoking_status option, #diabetes_status option, #family_history option {
-            color: black;
-        }
-        </style>
-        
         <button type="submit">Calculate Risk</button>
     </form>
 </body>
